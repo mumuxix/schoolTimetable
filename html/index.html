@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>课程表</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<link rel="stylesheet" href="../css/weui.min.css">
+<link rel="stylesheet" href="../css/jquery-weui.css">
+<link rel="stylesheet" href="../css/demos.css">
+<style>
+#coursesTable {
+	padding: 5px 2px;
+}
+
+.Courses-head {
+	background-color: #F8F5F5;
+}
+
+.Courses-head>div {
+	text-align: center;
+	font-size: 13px;
+	line-height: 28px;
+}
+
+.Courses-head-day {
+	text-align: center;
+	font-size: 10px;
+	line-height: 10px;
+	margin-bottom: 5px;
+}
+
+.left-hand-TextDom, .Courses-head {
+	background-color: #F8F5F5;
+}
+
+.Courses-leftHand {
+	background-color: #F8F5F5;
+	font-size: 12px;
+}
+
+.Courses-leftHand .left-hand-index {
+	color: #173252;
+	font-weight: 600;
+	margin-bottom: 0px !important;
+}
+
+.Courses-leftHand .left-hand-name {
+	color: #173252;
+	font-size: 8px;
+}
+
+.Courses-leftHand p {
+	text-align: center;
+}
+
+.Courses-head>div {
+	border-left: none !important;
+}
+
+.Courses-leftHand>div {
+	padding-top: 0px;
+	border-bottom: 0px dashed rgb(219, 219, 219);
+}
+
+.Courses-leftHand>div:last-child {
+	border-bottom: none !important;
+}
+
+.left-hand-TextDom, .Courses-head {
+	border-bottom: 1px solid #F8F5F5 !important;
+}
+
+.Courses-content>ul {
+	border-bottom: 1px dashed #ECF0F2;
+	box-sizing: border-box;
+}
+
+.Courses-content>ul:last-child {
+	border-bottom: none !important;
+}
+
+.highlight-week {
+	background: #DEE7ED;
+	border-radius: 5px;
+}
+
+.Courses-content li {
+	text-align: center;
+	color: #666666;
+	font-size: 12px;
+	line-height: 50px;
+}
+
+.Courses-content li span {
+	padding: 6px 2px;
+	box-sizing: border-box;
+	line-height: 18px;
+	border-radius: 5px;
+	white-space: normal;
+	word-break: break-all;
+	cursor: pointer;
+}
+
+.grid-active {
+	z-index: 1;
+}
+
+.grid-active span {
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.swiper-slide {
+	text-align: center;
+	font-size: 14px;
+	font-weight: 600;
+	color: #bcbcbc;
+	background: #fff;
+	/* Center slide text vertically */
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+	background: #F7F7F7;
+}
+
+.swiper-button-next, .swiper-container-rtl .swiper-button-prev {
+	background-image: url('../images/right.png');
+	right: -5px;
+}
+/*解决点击之后有框*/
+.swiper-button-next:focus {
+	outline: none;
+}
+
+.swiper-button-prev:focus {
+	outline: none;
+}
+
+.swiper-button-prev, .swiper-container-rtl .swiper-button-next {
+	background-image: url('../images/left.png');
+	left: -5px;
+}
+
+.swiper-button-prev, .swiper-button-next {
+	background-size: 17px 14px;
+}
+
+.swiper-slide-active {
+	color: #576B95;
+}
+</style>
+</head>
+<body>
+	<div class="swiper-container" style="width: 80%;margin-top: 5px;background-color: #F7F7F7;    border-radius: 5px;    height: 30px;">
+		<div class="swiper-wrapper">
+			<div class='swiper-slide'>第1周</div>
+			<div class='swiper-slide'>第2周</div>
+			<div class='swiper-slide'>第3周</div>
+			<div class='swiper-slide'>第4周</div>
+			<div class='swiper-slide'>第5周</div>
+			<div class='swiper-slide'>第6周</div>
+			<div class='swiper-slide'>第7周</div>
+			<div class='swiper-slide'>第8周</div>
+			<div class='swiper-slide'>第9周</div>
+			<div class='swiper-slide'>第10周</div>
+			<div class='swiper-slide'>第11周</div>
+			<div class='swiper-slide'>第12周</div>
+			<div class='swiper-slide'>第13周</div>
+			<div class='swiper-slide'>第14周</div>
+			<div class='swiper-slide'>第15周</div>
+			<div class='swiper-slide'>第16周</div>
+			<div class='swiper-slide'>第17周</div>
+			<div class='swiper-slide'>第18周</div>
+			<div class='swiper-slide'>第19周</div>
+			<div class='swiper-slide'>第20周</div>
+			<div class='swiper-slide'>第21周</div>
+			<div class='swiper-slide'>第22周</div>
+		</div>
+		<!-- Add Arrows -->
+		<div class="swiper-button-next"></div>
+		<div class="swiper-button-prev"></div>
+	</div>
+	<div id="coursesTable"></div>
+	<!-- <div class="weui-cells__tips" style="font-size: 12px;">提示：本周5位老师授12门课、共40节。周一、三、四、五早上有课，别迟到。</div> -->
+
+
+	<script src="exampel/Timetables.js"></script>
+
+	<script src="../js/jquery-2.1.4.js"></script>
+	<script src="../js/fastclick.js"></script>
+	<script src="../js/jquery-weui.js"></script>
+	<script src="../js/swiper.min.js"></script>
+	<script src="index.js"></script>
+
+
+</body>
+</html>
+
